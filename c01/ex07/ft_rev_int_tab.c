@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbourich <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 13:33:00 by fbourich          #+#    #+#             */
-/*   Updated: 2022/02/01 13:34:36 by fbourich         ###   ########.fr       */
+/*   Created: 2022/02/02 16:18:09 by fbourich          #+#    #+#             */
+/*   Updated: 2022/02/02 16:40:14 by fbourich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+void	ft_swap(int *a, int *b)
 {
-	write (1, &c, 1);
+	int	c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
 }
 
-void	ft_putstr(char *str)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	int	i;
+	int	left;
 
-i = 0;
-	while (str[i] != '\0')
+	if (size < 2)
+		return ;
+	left = 0;
+	while (left < --size)
 	{
-		ft_putchar (str[i]);
-		i++;
+		ft_swap(&tab[left++], &tab[size]);
 	}
 }
